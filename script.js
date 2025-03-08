@@ -1,5 +1,3 @@
-
-  
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
 const chatBox = document.getElementById('chat-box');  // If needed to display chat
@@ -18,16 +16,16 @@ sendBtn.addEventListener('click', async () => {
   userInput.value = '';
 
   try {
-    console.log('Sending message to OpenAI API: ', userText);
+    console.log('Sending message to API: ', userText);
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer YOUR_OPENAI_API_KEY`,  // Replace with your OpenAI API key
+        'Authorization': `Bearer xai-sk1tTMEFO17RTBggGjugszZF0qDJKDxKzse6SSDbWJgTeuOZ7HgmzYUgp009CLolzkddz34tGOwjV9b5`,  // Use your API key here
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',  // OpenAI model
+        model: 'grok-beta',
         messages: [
           { role: 'system', content: 'You are a helpful assistant.' },
           { role: 'user', content: userText },
@@ -59,4 +57,3 @@ function appendMessage(text, sender) {
   chatBox.appendChild(messageDiv);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
-
